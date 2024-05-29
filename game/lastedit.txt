@@ -1,0 +1,21 @@
+Current(Last time I calculated the number 
+of lines of code) Lines of code: 2105 <----------------
+
+Objectif: 
+
+1. Make the creation menu
+   for new character         [X]
+
+2. Create the Main story
+   of the game               [ ]
+
+3. Calculate how many 
+   and what type of  item
+   in the game(like armor)   [ ] 
+
+4. Make folder to organize   [ ]
+
+5. Make the item             [ ]
+
+
+To finish...

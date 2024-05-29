@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Conquest</title>
+</head>
+<body>
+    <div class="game">
+        <h1>Conquest</h1>
+        <iframe id="myIframe" src="game.html" frameborder="0"></iframe>
+    </div>
+    <div class="playMenu">
+        <div class="centerDiv">
+            <h1>Conquest</h1>
+            <p>Unable to play on mobile. Please use a larger screen</p>
+            <button id="closeButton" class="main" onclick="playMusic()">PLAY</button>
+        </div>
+    </div>
+    <div class="startMenu">
+            <div class="allItem">
+                <h1>Conquest</h1>
+                    <div class="btn">
+                        <button id="first" class="main" onclick="newGame()">Creat Character</button>
+                        <button id="second" class="main" onclick="loadGame()">Load Game</button>
+                    </div>
+        </div>
+    </div>    
+    <audio id="backgroundMusic" src="song/startmenu.mp3"></audio>
+    <footer>
+        <p>Conquest, v0.1, Made by Ento9</p>
+    </footer>
+
+    <script>
+
+
+        // URLs des images
+        const images = [
+            'url("img/bg1.png")',
+            'url("img/bg2.jpg")'
+        ];
+
+        // Fonction pour choisir une image aléatoire
+        function setRandomBackgroundImage() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            document.body.style.backgroundImage = images[randomIndex];
+        }
+
+        // Appeler la fonction lorsque la page se charge
+        window.onload = setRandomBackgroundImage;
+
+        function playMusic() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            const playPromise = backgroundMusic.play();
+            const playMenus = document.getElementsByClassName("playMenu");
+            const playMenu = playMenus[0];
+            const startMenus = document.getElementsByClassName("startMenu");
+            const startMenu = startMenus[0];
+            playMenu.style.display = "none";
+            startMenu.style.display = "flex";
+
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('Musique de fond lancée.');
+                }).catch(error => {
+                    console.error('La lecture automatique a échoué:', error);
+                });
+            }
+
+            // Relancer la musique lorsqu'elle se termine
+            backgroundMusic.addEventListener('ended', playMusic);
+        }
+        
+        
+        
+        function newGame() {
+
+            const startMenus = document.getElementsByClassName("startMenu");
+            const startMenu = startMenus[0];
+            startMenu.style.display = "none";
+            const iframes = document.getElementsByClassName("game");
+            const iframe = iframes[0];
+            iframe.style.display = "block";
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.src = 'song/newgame.mp3';
+            
+            // Remettre la nouvelle musique au début
+            backgroundMusic.currentTime = 0;
+            
+            // Jouer la nouvelle musique
+            backgroundMusic.play();
+            const body = document.body;
+            const newImage = 'img/game1.jpeg';
+            body.style.backgroundImage = `url('${newImage}')`;
+        }
+        
+        function loadGame() {
+            const startMenus = document.getElementsByClassName("startMenu");
+            const startMenu = startMenus[0];
+            startMenu.style.display = "none";
+            const iframes = document.getElementsByClassName("game");
+            const iframee = iframes[0];
+            iframee.style.display = "block";
+            
+            const iframe = document.getElementById('myIframe');
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            
+            const creatCharacterDiv = iframeDocument.querySelector('.creatCharacter');
+            const loadDiv = iframeDocument.querySelector('.load');
+            
+            if (creatCharacterDiv) {
+                creatCharacterDiv.style.display = 'none';
+            }
+            
+            if (loadDiv) {
+                loadDiv.style.display = 'block';
+            }
+
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.src = 'song/newgame.mp3';
+            
+            // Remettre la nouvelle musique au début
+            backgroundMusic.currentTime = 0;
+            
+            // Jouer la nouvelle musique
+            backgroundMusic.play();
+
+            const body = document.body;
+            const newImage = 'img/game1.jpeg';
+            body.style.backgroundImage = `url('${newImage}')`;
+
+        }
+
+        window.addEventListener('beforeunload', function(event) {
+            // Annulation de la fermeture de la fenêtre
+            event.preventDefault();
+            // Message de confirmation personnalisé
+            event.returnValue = 'Êtes-vous sûr de vouloir quitter la page ?';
+        });
+
+
+    </script>
+    <script src="script/create-character.js"></script>
+</body>
+</html>

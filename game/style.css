@@ -1,0 +1,912 @@
+body {
+    user-select: none; /* Prevents text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For Internet Explorer/Edge */
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #292929;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #646464;
+    border-radius: 4px;
+}
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #919191;
+}
+
+@font-face {
+    font-family: main-font;
+    src: url(font/Lugrasimo-Regular.ttf);
+}
+
+@font-face {
+    font-family: title-font;
+    src: url(font/Barbatos.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: main-font;
+    background-image: url("img/bg2.jpg");
+    background-size: cover;    
+    background-position: center center;  
+    background-repeat: no-repeat;  
+    background-attachment: fixed; 
+}
+
+input[type=text] {
+    outline: none;
+}
+
+.playMenu {
+    display: block;
+    background-color: #292929;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.playMenu .centerDiv {
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+}
+
+.startMenu {
+    display: none; /* FLEX */
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.allItem .btn {
+    display: grid;
+}
+
+.allItem h1, .playMenu h1 {
+    font-family: title-font;
+    color: #000;
+    background-color: #EEE;
+    width: 200px;
+    font-size: 50px;
+    padding: 5px;
+}
+
+.game h1 {
+    text-align: center;
+    font-family: title-font;
+    color: #000;
+    background-color: #EEE;
+    width: 200px;
+    font-size: 50px;
+    padding: 5px;
+    position: absolute;
+    margin: 10px;
+}
+
+.startMenu #first {
+    width: 190px;
+    margin: auto;
+    width: 80%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.startMenu #second {
+    width: 160px;
+    margin: auto;
+    width: 65%;
+}
+
+.playMenu #closeButton {
+    width: 70%;
+    margin-top: 10px;
+}
+
+.main {
+    padding: 8px;
+    font-family: main-font;
+    border: none;
+    margin: 2.5px;
+    border-radius: 5px;
+    color: #f5bf42;
+    text-shadow: 1px 1px 4px #000;
+    background-image: linear-gradient(180deg, #363535, #787878, #292929);
+    border: 2px inset #f5bf42;
+}
+
+.main:hover {
+    cursor: pointer;
+    border: 2px inset #c9b587;
+    color: #c9b587;
+}
+
+footer {
+    position: absolute;
+    text-align: left;
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #EEE;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.game iframe {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: #f5bf42 groove 5px;
+    border-radius: 10px;
+}
+
+.game {
+    display: none;
+}
+
+.playMenu p {
+    display: none;
+    font-size: 15px;
+    color: red;
+}
+
+.frame {
+    display: block;
+    background-color: #292929;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/*GAME - - - - - - - - - - - - - - - */
+
+
+.creatCharacter h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    color: #EEE;
+    text-decoration: underline;
+}
+
+.creatCharacter .race {
+    display: block;
+}
+
+.creatCharacter h3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #EEE;
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+.creatCharacter .line {
+    height: 2px;
+    width: 100%;
+    background-color: #f5bf42;
+    margin-top: 50px;
+}
+
+.creatCharacter .race .table {
+    width: 200px;
+    float: right;
+    margin-right: 10px;
+}
+
+.creatCharacter h4 {
+    color: #EEE;
+    text-decoration: underline;
+}
+
+
+.creatCharacter .race h4 {
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+
+.creatCharacter .race .description {
+    float: left;
+    width: 240px;
+    text-align: center;
+    margin: 5px;
+}
+
+.creatCharacter .race .description .text {
+    overflow-y: scroll;
+    height: 240px;
+    margin-left: 20px;
+    border: 2px groove #f5bf42;
+    padding: 5px;
+    color: #EEE;
+}
+
+.creatCharacter .race .table button {
+    font-family: main-font;
+    border: none;
+    background: none;
+    font-size: 15px;
+    background-color: #363535;
+    padding: 5px;
+    width: 100%;
+    margin: 5px;
+    border-radius: 5px;
+    color: #f5bf42;
+    text-shadow: 1px 1px 4px #000;
+    background-image: linear-gradient(180deg, #363535, #787878, #292929);
+    border: 1.5px inset #f5bf42;
+}
+
+.creatCharacter .race .table button:hover {
+    cursor: pointer;
+    border: 1.5px inset #c9b587;
+    color: #c9b587;
+}
+
+.creatCharacter .race .selected{
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+}
+
+.creatCharacter .race .selected img {
+    max-width: 120px;
+    margin-left: 10px;
+}
+
+.creatCharacter .race .selected .ss {
+    margin-top: 40px;
+}
+
+.creatCharacter .race .selected .ss input {
+    border: none;
+    background: none;
+    font-family: main-font;
+    color: red;
+    margin-left: 18px;
+    outline: none;
+}
+
+.creatCharacter .page {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+}
+
+.creatCharacter .class {
+    display: none;
+}
+
+.creatCharacter .class .table button {
+    border: none;
+    background: none;
+    background-color: #363535;
+    height: 85px;
+    width: 85px;
+    margin: 5px;
+    border-radius: 50%;
+    font-family: main-font;
+    color: #EEE;
+    border: inset 2px #f5bf42;
+    text-shadow: 1px 1px 4px #000;
+    background: rgb(105,105,105);
+    background: radial-gradient(circle, rgba(105,105,105,1) 9%, rgba(64,64,64,1) 38%, rgba(36,36,36,1) 56%, rgba(40,40,40,1) 100%); 
+}
+
+.creatCharacter .class .table button:hover {
+    cursor: pointer;
+    border: 2px inset #c9b587;
+    color: #c9b587;
+}
+
+.creatCharacter .class .des {
+    position: absolute;
+    right: 100px;
+    bottom: 235px;
+}
+
+.creatCharacter .class .description {
+    overflow-y: scroll;
+    position: absolute;
+    right: 10px;
+    bottom: 60px;
+    width: 280px;
+    height: 160px;
+    padding: 2px;
+    border: 2px groove #f5bf42;
+    color: #EEE;
+}
+
+.creatCharacter .class .selected h4 {
+    margin-top: 30px;
+    margin-left: 65px;
+}
+
+
+.creatCharacter .class .selected input {
+    text-align: center;
+    border: none;
+    background: none;
+    color: red;
+    font-family: main-font;
+}
+
+.creatCharacter .class .ability {
+    position: absolute;
+    bottom: 30px;
+}
+
+.creatCharacter .class .ability h4 {
+    margin-left: 25px;
+}
+
+.creatCharacter .class .ability input {
+    color: #a269ff;
+    font-family: main-font;
+    border: none;
+    background: none;
+    text-align: center;
+}
+
+.creatCharacter .point {
+    display: none;
+}
+
+.creatCharacter .point .table {
+    overflow-y: auto; /* Use auto to show the scroll bar only when necessary */
+    height: 400px;
+    width: 200px;
+    border: #f5bf42 5px groove;
+    margin: 10px;
+}
+
+.creatCharacter .point .pointage {
+    display: flex;
+    margin: 10px;
+}
+
+.creatCharacter .point .pointage .circle input {
+    border: none;
+    text-align: center;
+    background: none;
+    width: 35px;
+    font-size: 15px;
+    font-family: main-font;
+    text-shadow: 1px 1px 4px #000;
+    color: #47b9ff;
+}
+
+.creatCharacter .point .pointage .circle {
+    color: #EEE;
+    background-color: #FFF;
+    font-size: 12px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    width: 70px;
+    border-radius: 50%;
+    text-shadow: 1px 1px 4px #000;
+    background: rgb(105,105,105);
+    background: radial-gradient(circle, rgba(105,105,105,1) 9%, rgba(64,64,64,1) 38%, rgba(36,36,36,1) 56%, rgba(40,40,40,1) 100%); 
+    border: 2px inset #f5bf42;
+}
+
+.creatCharacter .point .pointage button {
+    margin: 5px;
+    margin-top: 22px;
+    height: 30px;
+    width: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #de5021;
+    border-radius: 50%;
+    text-shadow: 1px 1px 4px #000;
+    background: rgb(105,105,105);
+    background: radial-gradient(circle, rgba(105,105,105,1) 9%, rgba(64,64,64,1) 38%, rgba(36,36,36,1) 56%, rgba(40,40,40,1) 100%); 
+    border: 2px inset #f5bf42;
+}
+
+.creatCharacter .point .pointage button:hover {
+    cursor: pointer;
+    border: 2px inset #c9b587;
+    color: #c9b587;
+}
+
+.creatCharacter .point .point-left .circle input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    background: none;
+    font-family: main-font;
+    font-size: 35px;
+    margin-top: 20px;
+    color: #25a816;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.creatCharacter .point .point-left .circle {
+    text-align: center;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background: rgb(105,105,105);
+    background: radial-gradient(circle, rgba(105,105,105,1) 9%, rgba(64,64,64,1) 38%, rgba(36,36,36,1) 56%, rgba(40,40,40,1) 100%); 
+    border: 2px inset #f5bf42;
+    text-shadow: 1px 1px 4px #000;
+    color: #EEE;
+}
+
+.creatCharacter .point .point-left {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+}
+
+.creatCharacter input[type=text] {
+    outline: none;
+}
+
+.creatCharacter .point .bonus {
+    position: absolute;
+    top: 250px;
+    right: 18px; 
+    text-align: center;
+}
+
+.creatCharacter .point .bonus input {
+    border: none;
+    width: 250px;
+    text-align: center;
+    font-family: main-font;
+    color: #a269ff;
+    background: none;
+}
+
+.creatCharacter .point .minimal-point, .creatCharacter .point .maximum-point, .creatCharacter .point .no-point  {
+    display: none;
+    position: absolute;
+    bottom: 2px;
+    color: red;
+}
+
+.creatCharacter .final {
+    display: none;
+}
+
+.creatCharacter .final .name {
+    position: absolute;
+    bottom: 8px;
+    left: 5px;
+}
+
+.creatCharacter .final .name label {
+    color: #EEE;
+}
+
+.creatCharacter .final .name input {
+    border: 2px inset #f5bf42;
+    text-shadow: 1px 1px 4px #000;
+    font-family: main-font;
+    background-color: #363535;
+    color: #EEE;
+    padding: 5px;
+    font-size: 17px;
+    border-radius: 5px;
+} 
+
+.creatCharacter .final .character .img img {
+    max-width: 100px;
+    border: 4px groove #f5bf42;
+    border-radius: 8px;
+}
+
+.creatCharacter .final .character {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    text-align: center;
+}
+
+.creatCharacter .final .character .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.creatCharacter .final .character .btn button {
+    width: 45%;
+    border: none;
+    background: none;
+    color: #f5bf42;
+    text-shadow: 1px 1px 4px #000;
+    background-image: linear-gradient(180deg, #363535, #787878, #292929);
+    border: 1.5px inset #f5bf42;
+}
+
+.creatCharacter .final .character .btn button:hover {
+    cursor: pointer;
+    border: 1.5px inset #c9b587;
+    color: #c9b587;
+}
+
+.creatCharacter .final .info1 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.creatCharacter .final .info1 input {  
+    border: none;
+    background: none;
+    text-align: center;
+    font-family: main-font;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.creatCharacter .final .info1 #race-input {
+    color: #25a816;
+}
+
+.creatCharacter .final .info1 #class-input {
+    color: #a269ff;
+}
+
+.creatCharacter .final .table {
+    display: grid;
+    position: absolute;
+    right: 40px;
+    bottom: 70px;
+}
+
+.creatCharacter .final .table .first-row {
+    display: flex;
+}
+
+.creatCharacter .final .table h4 {
+    text-align: center;
+}
+
+.creatCharacter .final .table .item {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    color: #EEE;
+    text-align: center;
+    color: #EEE;
+    border-radius: 5px;
+    text-shadow: 1px 1px 4px #000;
+    background-image: linear-gradient(180deg, #363535, #787878, #292929);
+    border: 2px inset #f5bf42;
+}
+
+.creatCharacter .final .table .item input {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-family: main-font;
+    color: #de5021;
+    background: none;
+    text-shadow: 1px 1px 4px #000;
+    border: none;
+}
+
+.creatCharacter .final .no-name {
+    display: none;
+    margin-top: 40px;
+    text-align: center;
+    color: red;
+}
+
+.creatCharacter .reconfirmation {
+    display: none;
+    position: absolute;
+    text-align: center;
+    background-color: #363535;
+    width: 300px;
+    padding: 16px;
+    color: #FFF;
+    border-radius: 15px;
+    border: 4px groove #f5bf42;
+    right: 90px;
+    top: 100px;
+    z-index: 9;
+}
+
+.creatCharacter .black {
+    display: none;
+    width: 500px;
+    top: 53px;
+    height: 1000px;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+}
+
+.creatCharacter {
+    display: block;
+}
+
+.load {
+    text-align: center;
+
+
+    display: none;
+}
+
+.load #startAfter {
+    position: absolute;
+    top: 160px;
+    left: 120px;
+    display: none;
+}
+
+/* GAMEPLAY/MAIN UI DOWN ----------------===========-------------===========*/
+
+.cinematic {
+    display: none;
+}
+
+.cinematic button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.gameplay {
+    display: none;
+}
+
+.gameplay .mainGameWindow {
+    border: 5px groove #a3a3a3;
+    width: 360px;
+    height: 300px;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    z-index: -6;
+}
+
+.gameplay .bottom-window .nav {
+    position: absolute;
+    bottom: 110px;
+    left: 20px;
+}
+
+.gameplay .bottom-window .nav button {
+    border: 2px;
+    padding: 2px;
+    width: 45px;
+    text-shadow: 1px 1px 4px #000;
+    font-family: main-font;
+    font-size: 11px;
+    background-image: linear-gradient(180deg, #363535, #787878, #292929);
+    border: 2px inset #f5bf42;
+    color: #FFF;
+}
+
+.gameplay .bottom-window .nav button:hover {
+    cursor: pointer;
+    border: 2px inset #c9b587;
+    color: #c9b587;
+}
+
+.gameplay .bottom-window .page {
+    border: 3px groove #f5bf42;
+    position: absolute;
+    bottom: 5px;
+    width: 95%;
+    left: 10px;
+    height: 95px;
+}
+
+.gameplay .right {
+    position: absolute;
+    display: grid;
+    right: 0;
+    top: 70px;
+    width: 120px;
+}
+
+.gameplay .right .top {
+    border-top: 2px inset #f5bf42;
+}
+
+.gameplay .right button {
+    text-shadow: 1px 1px 4px #000;
+    font-family: main-font;
+    background: none;
+    border: none;
+    height: 44.3px;
+    border-bottom: 2px inset #f5bf42;
+    color: #FFF;
+    background-image: linear-gradient(180deg, #363535, #787878, #292929);
+}
+
+.gameplay .right button:hover {
+    cursor: pointer;
+    border: 2px inset #c9b587;
+    color: #c9b587;
+}
+
+.gameplay .top-pv-info .level {
+    margin: 5px;
+    border-radius: 50%;
+    padding: 2px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    background: none;
+    border: none;
+    font-family: main-font;
+    color: #EEE;
+    font-size: 30px;
+    background: rgb(105,105,105);
+    background: radial-gradient(circle, rgba(105,105,105,1) 9%, rgba(64,64,64,1) 38%, rgba(36,36,36,1) 56%, rgba(40,40,40,1) 100%); 
+    border: 2px inset #f5bf42;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.top-pv-info #health-bar {
+    position: absolute;
+    left: 55px;
+    top: 15px;
+    z-index: -1;
+}
+
+.top-pv-info #xp-bar {
+    position: absolute;
+    left: 52px;
+    top: 39px;
+    z-index: -1;
+}
+
+.top-pv-info #xp-bar {
+    width: 200px;
+    height: 12px; 
+}
+
+.top-pv-info #health-text {
+    position: absolute;
+    border: none;
+    background: none;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px #000;
+    top: 19px;
+    left: 170px;
+}
+
+.top-pv-info #xp-text {
+    position: absolute;
+    border: none;
+    background: none;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px #000;
+    top: 39px;
+    left: 130px;
+}
+
+.top-pv-info progress {
+    width: 300px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px inset #f5bf42;
+    background-color: #292929;
+    border-bottom-right-radius: 10px;
+}
+
+.top-pv-info progress::-webkit-progress-bar {
+    background-color: #292929;
+    overflow: hidden;
+}
+
+.top-pv-info progress::-webkit-progress-value {
+    background: rgb(119,255,92);
+    background: linear-gradient(180deg, rgba(119,255,92,1) 9%, rgba(169,255,113,1) 38%, rgba(64,105,0,1) 56%, rgba(8,47,0,1) 100%); 
+    transition: width 0.4s ease-in-out;
+}
+
+.top-pv-info progress::-moz-progress-bar {
+    background: rgb(119,255,92);
+    background: linear-gradient(180deg, rgba(119,255,92,1) 9%, rgba(169,255,113,1) 38%, rgba(64,105,0,1) 56%, rgba(8,47,0,1) 100%); 
+    transition: width 0.4s ease-in-out;
+}
+
+
+.top-pv-info #xp-bar::-webkit-progress-value {
+    background: rgb(183,92,255);
+    background: linear-gradient(180deg, rgba(183,92,255,1) 9%, rgba(229,188,255,1) 44%, rgba(118,0,204,1) 65%, rgba(23,0,28,1) 100%); 
+    transition: width 0.4s ease-in-out;
+}
+
+.top-pv-info #xp-bar::-moz-progress-bar {
+    background: rgb(183,92,255);
+    background: linear-gradient(180deg, rgba(183,92,255,1) 9%, rgba(229,188,255,1) 44%, rgba(118,0,204,1) 65%, rgba(23,0,28,1) 100%); 
+    transition: width 0.4s ease-in-out;
+}
+
+.gameplay .save {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.load h3 {
+    color: #FFF;
+    margin: 10px;
+}
+
+.load {
+    position: absolute;
+    left: 85px;
+    top: 100px;
+    text-align: center;
+}
+
+.load input[type=file] {
+    width: 200px;
+}
+
+.load input[type=file]::file-selector-button {
+    background: none;
+    padding: 8px;
+    font-family: main-font;
+    border: none;
+    margin: 2.5px;
+    border-radius: 5px;
+    color: #EEE;
+    text-shadow: 1px 1px 4px #000;
+  }
+ 
+  .load p {
+    color: #a269ff;
+  }
+
+
+@media screen and (max-width: 510px) {
+    .playMenu p {
+        display: block;
+    }
+
+    .playMenu button {
+        display: none;
+    }
+}
